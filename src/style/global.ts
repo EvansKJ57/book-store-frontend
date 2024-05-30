@@ -1,9 +1,9 @@
 import * as styled from 'styled-components';
 import 'sanitize.css';
-import { TThemeName } from './theme';
+import { ThemeName } from './theme';
 
 interface IProps {
-  themeName: TThemeName;
+  themeName: ThemeName;
 }
 export const GlobalStyle = styled.createGlobalStyle<IProps>`
   body {

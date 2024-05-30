@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
-import { TThemeName, getTheme } from '../style/theme';
+import { ThemeName, getTheme } from '../style/theme';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../style/global';
 
@@ -7,7 +7,7 @@ const DEFAULT_THEME_NAME = 'light';
 const THEME_LOCALSTORAGE_KEY = 'book_store_theme';
 
 interface IState {
-  themeName: TThemeName;
+  themeName: ThemeName;
   toggleTheme: () => void;
 }
 
@@ -23,7 +23,7 @@ export const BookStoreThemeProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [themeName, setThemeName] = useState<TThemeName>(DEFAULT_THEME_NAME);
+  const [themeName, setThemeName] = useState<ThemeName>(DEFAULT_THEME_NAME);
 
   const toggleTheme = () => {
     const theme = themeName === 'light' ? 'dark' : 'light';
@@ -34,7 +34,7 @@ export const BookStoreThemeProvider = ({
   useEffect(() => {
     const savedTheme = localStorage.getItem(
       THEME_LOCALSTORAGE_KEY
-    ) as TThemeName;
+    ) as ThemeName;
 
     setThemeName(savedTheme || DEFAULT_THEME_NAME);
   }, []);
