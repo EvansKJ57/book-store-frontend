@@ -1,4 +1,4 @@
 export interface IPagination {
-  currentPage: number;
+  curPage: number;
   totalCount: number;
 }

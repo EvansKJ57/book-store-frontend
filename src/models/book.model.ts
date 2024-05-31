@@ -9,7 +9,7 @@ export interface IBook {
   detail: string;
   author: string;
   pages: number;
-  indexList: string[];
+  indexList: string;
   price: number;
   pubDate: string;
   likeCounts: number;
