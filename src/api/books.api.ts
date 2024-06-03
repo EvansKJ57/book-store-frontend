@@ -1,4 +1,4 @@
-import { IBook } from '../models/book.model';
+import { IBook, IBookDetail } from '../models/book.model';
 import { IPagination } from '../models/pagination.model';
 import { httpClient } from './http';
 
@@ -29,4 +29,19 @@ export const fetchBooks = async (params: FetchBooksParams) => {
       },
     };
   }
+};
+
+export const fetchBook = async (bookId: string) => {
+  const res = await httpClient.get<IBookDetail>(`/books/${bookId}`);
+  return res.data;
+};
+
+export const likeBook = async (bookId: number) => {
+  const res = await httpClient.post(`/likes/${bookId}`);
+  return res.data;
+};
+
+export const unlikeBook = async (bookId: number) => {
+  const res = await httpClient.delete(`/likes/${bookId}`);
+  return res.data;
 };

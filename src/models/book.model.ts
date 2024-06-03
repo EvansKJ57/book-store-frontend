@@ -9,10 +9,10 @@ export interface IBook {
   detail: string;
   author: string;
   pages: number;
-  indexList: string;
+  contents: string;
   price: number;
-  pubDate: string;
-  likeCounts: number;
+  pub_date: string;
+  likes: number;
 }
 
 export interface IBookDetail extends IBook {
