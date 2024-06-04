@@ -12,7 +12,7 @@ import { useAuthStore } from '../store/authStore';
 
 const Login = () => {
   const navigate = useNavigate();
-  const showAlert = useAlert();
+  const { showAlert } = useAlert();
   const { storeLogin } = useAuthStore();
   const {
     register,

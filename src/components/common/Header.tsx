@@ -5,7 +5,6 @@ import { FaSignInAlt, FaRegUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useCategory } from '../../hooks/useCategory';
 import { useAuthStore } from '../../store/authStore';
-import Button from './Button';
 
 const Header = () => {
   const { category } = useCategory();

@@ -14,7 +14,6 @@ const Pagination = ({ pagination }: Props) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { curPage, totalCount } = pagination;
 
-  console.log(pagination);
   const pages: number = Math.ceil(totalCount / PAGESIZE);
 
   const handleClickPage = (page: number) => {

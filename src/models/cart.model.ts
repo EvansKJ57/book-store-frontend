@@ -1,8 +1,8 @@
 export interface ICart {
-  id: number;
+  cartId: number;
   bookId: number;
   title: string;
   summary: string;
-  quantity: number;
+  qty: number;
   price: number;
 }
