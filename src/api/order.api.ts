@@ -1,12 +1,10 @@
 import { IOrder, IOrderSheet } from '../models/order.model';
-import { httpClient } from './http';
+import { requestHandler } from './http';
 
 export const order = async (orderData: IOrderSheet) => {
-  const res = await httpClient.post('/orders', orderData);
-  return res.data;
+  return await requestHandler('post', '/orders', orderData);
 };
 
-export const fetchOrders = async () => {
-  const res = await httpClient.get<IOrder[]>('/orders');
-  return res.data;
+export const fetchOrders = async (): Promise<IOrder[]> => {
+  return await requestHandler('get', '/orders');
 };

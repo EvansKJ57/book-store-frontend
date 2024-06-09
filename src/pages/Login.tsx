@@ -3,17 +3,13 @@ import Title from '../components/common/Title';
 
 import InputText from '../components/common/InputText';
 import Button from '../components/common/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { login } from '../api/auth';
-import { useAlert } from '../hooks/useAlert';
 import { SignupProps, SignupStyle } from './Signup';
-import { useAuthStore } from '../store/authStore';
+import { useAuth } from '@/hooks/useAuth';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { showAlert } = useAlert();
-  const { storeLogin } = useAuthStore();
+  const { userLogin } = useAuth();
   const {
     register,
     handleSubmit,
@@ -21,14 +17,7 @@ const Login = () => {
   } = useForm<SignupProps>();
 
   const onSubmit = async (data: Omit<SignupProps, 'name'>) => {
-    try {
-      const result = await login(data);
-      storeLogin(result.acToken);
-      showAlert('로그인 완료되었습니다.');
-      navigate('/');
-    } catch (error) {
-      showAlert('로그인이 실패했습니다.');
-    }
+    userLogin(data);
   };
 
   return (
