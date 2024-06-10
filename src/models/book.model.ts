@@ -19,3 +19,13 @@ export interface IBookDetail extends IBook {
   categoryName: string;
   liked: boolean;
 }
+
+export interface IBookReviewItem {
+  id: number;
+  userName: string;
+  content: string;
+  createdAt: string;
+  score: number;
+}
+
+export type IBookReviewItemWrite = Pick<IBookReviewItem, 'content' | 'score'>;
