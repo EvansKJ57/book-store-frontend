@@ -1,19 +1,41 @@
 import React from 'react';
-import Title from '../components/common/Title';
-import Button from '../components/common/Button';
-import InputText from '../components/common/InputText';
+import styled from 'styled-components';
+import MainReview from '../components/main/MainReview';
+import { useMain } from '@/hooks/useMain';
+import Title from '@/components/common/Title';
+import MainNewBooks from '@/components/main/MainNewBooks';
+import MainBestBooks from '@/components/main/MainBestBooks';
+import Banner from '@/components/common/banner/Banner';
 
 const Home = () => {
+  const { reviews, newBooks, bestBooks, banners } = useMain();
   return (
-    <>
-      <Title size="large">제목 테스트</Title>
-      <Button size="large" scheme="primary">
-        버튼 테스트
-      </Button>
-      <InputText placeholder="something here" />
-      <div>home body</div>
-    </>
+    <HomeStyle>
+      {/* 배너 */}
+      <Banner banners={banners} />
+
+      <section className="section">
+        <Title size="large">베스트 셀러</Title>
+        <MainBestBooks books={bestBooks} />
+      </section>
+
+      <section className="section">
+        <Title size="large">신간 안내</Title>
+        <MainNewBooks books={newBooks} />
+      </section>
+
+      <section className="section">
+        <Title size="large">리뷰</Title>
+        <MainReview reviews={reviews} />
+      </section>
+    </HomeStyle>
   );
 };
+
+const HomeStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
 
 export default Home;
