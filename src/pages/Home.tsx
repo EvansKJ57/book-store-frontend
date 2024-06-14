@@ -9,9 +9,10 @@ import Banner from '@/components/common/banner/Banner';
 
 const Home = () => {
   const { reviews, newBooks, bestBooks, banners } = useMain();
+  
+
   return (
     <HomeStyle>
-      {/* 배너 */}
       <Banner banners={banners} />
 
       <section className="section">
